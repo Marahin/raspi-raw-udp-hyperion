@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  web:
+    network_mode: host
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    entrypoint: "CompileDaemon --exclude-dir=.git --build='make build' --command=./rruh"
+    # ports:
+    #   - 3000:3000
+    volumes:
+      - ./:/app
+    # environment:
